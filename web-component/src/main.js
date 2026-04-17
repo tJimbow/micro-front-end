@@ -2,11 +2,9 @@ import { createApp } from 'vue'
 import './style.css'
 import App from './App.vue'
 import './register.js'
-import 'vuetify/styles'
-import { createVuetify } from 'vuetify'
+import { createNaiveUi } from 'naive-ui'
 
-const vuetify = createVuetify()
-
+const naive = createNaiveUi()
 const app = createApp(App)
-app.use(vuetify)
+app.use(naive)
 app.mount('#app')

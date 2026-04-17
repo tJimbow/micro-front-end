@@ -1,28 +1,29 @@
 <template>
-    <div>
-        <v-row class="mb-4" align="center">
-            <v-col cols="8">
-                <h1>Liste des produits</h1>
-            </v-col>
-            <v-col cols="4" class="text-right">
-                <v-btn color="primary" to="/add" router>Ajouter un produit</v-btn>
-            </v-col>
-        </v-row>
-        <v-row>
-            <v-col v-for="product in store.products" :key="product.id" cols="12" md="6" lg="4">
-                <router-link :to="`/product/${product.id}`" style="text-decoration: none;">
+    <n-space vertical size="large">
+        <n-space align="center" justify="center">
+            <n-h1>Liste des produits</n-h1>
+        </n-space>
+        <n-space align="center" justify="center">
+            <router-link to="/add">
+                <n-button type="primary" size="large">Ajouter un produit</n-button>
+            </router-link>
+        </n-space>
+        <n-grid cols="1 s:2 m:3" x-gap="32" y-gap="32">
+            <n-grid-item v-for="product in store.products" :key="product.id">
+                <router-link :to="`/product/${product.id}`">
                     <product-tile
-                        v-bind:title="product.name"
-                        v-bind:description="product.description"
+                        :title="product.name"
+                        :description="product.description"
                     />
                 </router-link>
-            </v-col>
-        </v-row>
-    </div>
+            </n-grid-item>
+        </n-grid>
+    </n-space>
 </template>
 <script setup>
 import {onMounted} from 'vue';
 import {useProductStore} from '../store';
+import {NGrid, NGridItem, NButton, NSpace, NH1, NH3, NCard} from 'naive-ui';
 
 const store = useProductStore();
 

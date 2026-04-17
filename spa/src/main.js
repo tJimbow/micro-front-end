@@ -4,25 +4,10 @@ import App from './App.vue';
 import { createPinia } from 'pinia';
 import router from './router';
 
-// Import Vuetify
-import 'vuetify/styles';
-import { createVuetify } from 'vuetify';
-import { aliases, mdi } from 'vuetify/iconsets/mdi';
-import * as components from 'vuetify/components';
-import * as directives from 'vuetify/directives';
-
-const vuetify = createVuetify({
-  components,
-  directives,
-  icons: {
-	defaultSet: 'mdi',
-	aliases,
-	sets: { mdi },
-  },
-});
+import naive from 'naive-ui';
 
 const app = createApp(App);
 app.use(createPinia());
 app.use(router);
-app.use(vuetify);
+app.use(naive);
 app.mount('#app');

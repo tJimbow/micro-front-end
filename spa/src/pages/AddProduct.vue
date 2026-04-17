@@ -1,26 +1,31 @@
 <template>
-  <v-row justify="center">
-    <v-col cols="12" md="8" lg="6">
-      <v-card>
-        <v-card-title>Ajouter un produit</v-card-title>
-        <v-card-text>
-          <v-form @submit.prevent="submit">
-            <v-text-field v-model="name" label="Nom du produit" required class="mb-3" />
-            <v-textarea v-model="description" label="Description" required class="mb-3" />
-            <v-file-input label="Image" @change="onFileChange" accept="image/*" class="mb-3" />
-            <v-btn color="primary" type="submit">Ajouter</v-btn>
-          </v-form>
-        </v-card-text>
-      </v-card>
-    </v-col>
-  </v-row>
+  <n-space justify="center">
+    <n-card style="max-width: 600px; width: 100%;">
+      <template #header>
+        Ajouter un produit
+      </template>
+      <n-form @submit.prevent="submit">
+        <n-form-item label="Nom du produit" required>
+          <n-input v-model:value="name" placeholder="Nom du produit" class="mb-3" />
+        </n-form-item>
+        <n-form-item label="Description" required>
+          <n-input v-model:value="description" type="textarea" placeholder="Description" class="mb-3" />
+        </n-form-item>
+        <n-form-item label="Image">
+          <input type="file" @change="onFileChange" accept="image/*" class="mb-3" />
+        </n-form-item>
+        <n-form-item>
+          <n-button type="primary" attr-type="submit">Ajouter</n-button>
+        </n-form-item>
+      </n-form>
+    </n-card>
+  </n-space>
 </template>
 
 <script setup>
 import { ref } from 'vue';
 import { useProductStore } from '../store';
-// Import des composants Vuetify pour la compilation
-import { VRow, VCol, VCard, VCardTitle, VCardText, VForm, VTextField, VTextarea, VFileInput, VBtn } from 'vuetify/components';
+import { NCard, NForm, NFormItem, NInput, NButton, NSpace } from 'naive-ui';
 
 const store = useProductStore();
 const name = ref('');

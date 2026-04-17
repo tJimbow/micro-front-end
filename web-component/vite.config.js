@@ -17,7 +17,7 @@ export default defineConfig({
       entry: resolve(__dirname, 'src/register.js'),
       name: 'ProductTile',
       fileName: 'product-tile',
-      formats: ['iife'],
+      formats: ['es'],
     },
   },
 })

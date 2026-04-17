@@ -1,26 +1,29 @@
 <template>
-  <div>
-    <h1>Mon panier</h1>
-    <v-row v-if="store.cart.length" class="mb-4">
-      <v-col v-for="item in store.cart" :key="item.id" cols="12" md="6" lg="4">
-        <v-card class="mb-4">
-          <v-img v-if="item.image" :src="item.image" height="120px" cover />
-          <v-card-title>{{ item.name }}</v-card-title>
-          <v-card-text>{{ item.description }}</v-card-text>
-          <v-card-actions>
-            <v-btn color="error" @click="remove(item.id)">Retirer</v-btn>
-          </v-card-actions>
-        </v-card>
-      </v-col>
-    </v-row>
-    <v-btn v-if="store.cart.length" color="primary" @click="validate">Valider le panier</v-btn>
-    <div v-else>
-      <v-alert type="info" border="start" color="primary" variant="tonal">Votre panier est vide.</v-alert>
-    </div>
-  </div>
+  <n-space vertical size="large">
+    <n-h1>Mon panier</n-h1>
+    <n-grid v-if="store.cart.length" cols="1 s:2 m:3" x-gap="16" y-gap="16">
+      <n-grid-item v-for="item in store.cart" :key="item.id">
+        <n-card>
+          <template #cover v-if="item.image">
+            <img :src="item.image" :alt="item.name" style="width: 100%; height: 120px; object-fit: cover;" />
+          </template>
+          <template #header>
+            <n-h3>{{ item.name }}</n-h3>
+          </template>
+          <div>{{ item.description }}</div>
+          <template #footer>
+            <n-button type="error" @click="remove(item.id)">Retirer</n-button>
+          </template>
+        </n-card>
+      </n-grid-item>
+    </n-grid>
+    <n-button v-if="store.cart.length" type="primary" @click="validate">Valider le panier</n-button>
+    <n-alert v-else type="info">Votre panier est vide.</n-alert>
+  </n-space>
 </template>
 <script setup>
 import { useProductStore } from '../store';
+import { NGrid, NGridItem, NCard, NButton, NAlert, NSpace, NH1, NH3 } from 'naive-ui';
 const store = useProductStore();
 function remove(id) {
   store.removeFromCart(id);
@@ -30,4 +33,3 @@ function validate() {
   store.clearCart();
 }
 </script>
-

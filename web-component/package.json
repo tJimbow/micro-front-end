@@ -15,6 +15,7 @@
   "devDependencies": {
     "@rollup/plugin-replace": "^6.0.3",
     "@vitejs/plugin-vue": "^6.0.6",
+    "naive-ui": "^2.44.1",
     "vite": "^8.0.4"
   }
 }
