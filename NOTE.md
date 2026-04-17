@@ -1,0 +1,4 @@
+- SEO (taille dependence)
+- Gestion fallback (N-1 sur canary)
+- 
+- CSR / SSR / SSG (static site generation)
