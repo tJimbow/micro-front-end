@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const path = require('path');
 const app = express();
 const PORT = 3001;
 
@@ -33,7 +34,10 @@ app.get('/products', (req, res) => {
   res.json(products);
 });
 
+
+// Sert tous les fichiers du dossier dist sous /web-components/
+app.use('/web-components', express.static(path.join(__dirname, '../web-component/dist')));
+
 app.listen(PORT, () => {
   console.log(`API backend démarrée sur http://localhost:${PORT}`);
 });
-
