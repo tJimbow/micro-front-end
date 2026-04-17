@@ -3,7 +3,7 @@
     <n-layout content-style="padding: 1rem;">
       <n-layout-header bordered>
         <n-space align="center" justify="space-between" style="width: 100%; max-width: 1200px; margin: 0 auto; height: 64px;">
-          <span class="app-title">Micro Front-End Shop</span>
+          <n-h3 class="app-title">Micro Front-End Shop</n-h3>
           <n-space>
             <router-link to="/">
               <n-button quaternary strong>Produits</n-button>
@@ -28,5 +28,5 @@
 </template>
 
 <script setup>
-import { NLayout, NLayoutHeader, NLayoutContent, NButton, NConfigProvider, NDivider, NSpace, lightTheme } from 'naive-ui';
+import { NLayout, NLayoutHeader, NLayoutContent, NButton, NConfigProvider, NDivider, NSpace, lightTheme, NH3 } from 'naive-ui';
 </script>

@@ -1,6 +1,6 @@
 import { defineCustomElement } from 'vue'
-import ProductTile from './components/ProductTile.vue'
+import ProductList from './components/ProductList.vue'
 
-const ProductTileElement = defineCustomElement(ProductTile)
+const ProductListElement = defineCustomElement(ProductList)
 
-customElements.define('product-tile', ProductTileElement)
+customElements.define('product-list', ProductListElement)

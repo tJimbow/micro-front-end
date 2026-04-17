@@ -15,8 +15,8 @@ export default defineConfig({
   build: {
     lib: {
       entry: resolve(__dirname, 'src/register.js'),
-      name: 'ProductTile',
-      fileName: 'product-tile',
+      name: 'ProductList',
+      fileName: 'product-list',
       formats: ['es'],
     },
   },

@@ -18,6 +18,10 @@ export const useProductStore = defineStore('product', () => {
     products.value.push({ ...product, id: Date.now(), versions: [] });
   }
 
+  function addExistingProduct(product) {
+    products.value.push(product);
+  }
+
   function addVersion(productId, version) {
     const prod = products.value.find(p => p.id === productId);
     if (prod) prod.versions.push(version);
@@ -35,6 +39,6 @@ export const useProductStore = defineStore('product', () => {
     cart.value = [];
   }
 
-  return { products, cart, addProduct, addVersion, addToCart, removeFromCart, clearCart, fetchProducts };
+  return { products, cart, addProduct, addVersion, addToCart, removeFromCart, clearCart, fetchProducts, addExistingProduct };
 });
 
